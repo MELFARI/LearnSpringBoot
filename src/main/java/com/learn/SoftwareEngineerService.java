@@ -17,4 +17,14 @@ public SoftwareEngineerService(SoftwareEngineerRepository softwareEngineerReposi
 public List<SoftwareEngineer> getAllSoftwareEngineers(){
     return softwareEngineerRepository.findAll();
 }
+
+    public void insertSoftwareEngineer(SoftwareEngineer softwareEngineer) {
+
+    softwareEngineerRepository.save(softwareEngineer);
+    }
+
+    public SoftwareEngineer getEngineerById(Integer id) {
+    return softwareEngineerRepository.findById(id)
+        .orElseThrow(() -> new IllegalStateException(id + "not found"));
+    }
 }
